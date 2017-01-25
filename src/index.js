@@ -5,6 +5,6 @@ import './index.css';
 import Voting from './components/Voting';
 
 ReactDOM.render(
-  <Voting pair={pair} hasVoted="Trainspotting" />,
+  <Voting pair={pair} winner="Trainspotting" />,
   document.getElementById('root')
 );
