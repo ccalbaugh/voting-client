@@ -48,10 +48,13 @@ module.exports = {
     // We include the app code last so that if there is a runtime error during
     // initialization, it doesn't blow up the WebpackDevServer client, and
     // changing JS code would still trigger a refresh.
+    // 'webpack-dev-server/client?http://localhost:8080',
+    // 'webpack/hot/only-dev-server',
+    // './src/App.js'
   ],
   output: {
     // Next line is not used in dev but WebpackDevServer crashes without it:
-    path: paths.appBuild,
+    path: __dirname + '/dist',
     // Add /* filename */ comments to generated require()s in the output.
     pathinfo: true,
     // This does not produce a real file. It's just the virtual path that is
@@ -175,6 +178,11 @@ module.exports = {
         ]
       }),
     ];
+  },
+
+  devServer: {
+    contentBase: './build',
+    hot: true
   },
   plugins: [
     // Makes the public URL available as %PUBLIC_URL% in index.html, e.g.:
